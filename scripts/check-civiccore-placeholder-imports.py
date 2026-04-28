@@ -25,7 +25,7 @@ for path in SOURCE_ROOT.rglob("*.py"):
         if match:
             violations.append(
                 f"{path}:{lineno}: civiccore.{match.group(1)} is a placeholder package "
-                "in v0.2.0. See AGENTS.md section 3.1."
+                "in v0.3.0. See AGENTS.md section 3.1."
             )
 
 if violations:
