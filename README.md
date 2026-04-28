@@ -1,10 +1,10 @@
 # CivicLegal
 
-CivicLegal is the CivicSuite internal legal-record research support module. Version 0.1.0 ships deterministic foundations for privilege-aware corpus filtering, citation-first search across city records, prior-action lookup, attorney-reviewed memo scaffolds, ordinance comparison checklists, litigation-hold candidate flags, authority citation tracking, FastAPI runtime, docs, tests, browser QA, and release gates.
+CivicLegal is the CivicSuite internal legal-record research support module. Version 0.1.1 ships deterministic foundations for privilege-aware corpus filtering, citation-first search across city records, prior-action lookup, attorney-reviewed memo scaffolds, ordinance comparison checklists, litigation-hold candidate flags, authority citation tracking, FastAPI runtime, docs, tests, browser QA, and release gates.
 
 It is intentionally not legal advice, not Westlaw or Lexis, not a court-filing system, not an autonomous legal conclusion engine, and not an external legal-system connector. City attorneys control the corpus, approve outputs, and make all legal judgments.
 
-## Shipping in v0.1.0
+## Shipping in v0.1.1
 
 - Privilege-tier helpers for public, staff, attorney, and privileged records.
 - Citation-first cross-corpus search over supplied city legal records.
@@ -18,7 +18,7 @@ It is intentionally not legal advice, not Westlaw or Lexis, not a court-filing s
 ## Not shipped yet
 
 - Legal advice, Westlaw/Lexis replacement, autonomous legal conclusions, court filing, e-discovery management, live LLM calls, live privileged corpus ingestion, or external legal-system connector runtime.
-- Live CivicCode, CivicClerk, or CivicContracts imports. v0.1.0 models the handoff shapes and keeps them deterministic.
+- Live CivicCode, CivicClerk, or CivicContracts imports. v0.1.1 models the handoff shapes and keeps them deterministic.
 
 ## Install
 
@@ -27,7 +27,7 @@ python -m pip install -e ".[dev]"
 python -m uvicorn civiclegal.main:app --host 127.0.0.1 --port 8140
 ```
 
-CivicLegal v0.1.0 is pinned to `civiccore==0.2.0`.
+CivicLegal v0.1.1 is pinned to `civiccore==0.3.0`.
 
 ## Documentation
 

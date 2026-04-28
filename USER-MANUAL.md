@@ -31,7 +31,7 @@ python -m pip install -e ".[dev]"
 python -m uvicorn civiclegal.main:app --host 127.0.0.1 --port 8140
 ```
 
-CivicLegal v0.1.0 depends on `civiccore==0.2.0`.
+CivicLegal v0.1.1 depends on `civiccore==0.3.0`.
 
 Run the release gate:
 
@@ -45,4 +45,4 @@ The release gate checks documentation, placeholder imports, tests, Ruff, package
 
 ![CivicLegal architecture](docs/architecture-civiclegal.svg)
 
-CivicLegal v0.1.0 is conservative by design. The city attorney controls corpus access and privileged records. CivicLegal filters records by access tier, returns citations, and prepares review artifacts. Attorneys approve all legal work. Future releases can add live CivicCode, CivicClerk, and CivicContracts imports without weakening the human-review and privilege boundaries.
+CivicLegal v0.1.1 is conservative by design. The city attorney controls corpus access and privileged records. CivicLegal filters records by access tier, returns citations, and prepares review artifacts. Attorneys approve all legal work. Future releases can add live CivicCode, CivicClerk, and CivicContracts imports without weakening the human-review and privilege boundaries.

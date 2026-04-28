@@ -1,6 +1,6 @@
 """FastAPI runtime foundation for CivicLegal."""
 from civiccore import __version__ as CIVICCORE_VERSION
-from fastapi import FastAPI
+from fastapi import FastAPI, Response
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 
@@ -69,7 +69,7 @@ def root() -> dict[str, str]:
             "Westlaw/Lexis replacement, autonomous legal conclusions, live LLM calls, court filing, "
             "and external legal-system connector runtime are not implemented yet."
         ),
-        "next_step": "Post-v0.1.0 roadmap: attorney-managed corpus imports, legal review queues, and cross-module handoffs",
+        "next_step": "Post-v0.1.1 roadmap: attorney-managed corpus imports, legal review queues, and cross-module handoffs",
     }
 
 
@@ -121,3 +121,9 @@ def citation_tracker(request: CitationRequest) -> dict[str, object]:
 @app.get("/api/v1/civiclegal/accessible-records/{role}")
 def accessible_records(role: str) -> dict[str, object]:
     return {"records": [record.__dict__ for record in filter_accessible_records(SAMPLE_RECORDS, role)]}
+
+@app.get("/favicon.ico", include_in_schema=False)
+def favicon() -> Response:
+    """Return an empty favicon response so browser QA has a clean console."""
+
+    return Response(status_code=204)

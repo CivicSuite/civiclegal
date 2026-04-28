@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "civiclegal"
-version = "0.1.0"
+version = "0.1.1"
 description = "CivicLegal foundation for cited internal legal-corpus lookup, privilege-aware search, and attorney-reviewed drafting support."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Apache-2.0" }
 authors = [{ name = "CivicSuite contributors" }]
-dependencies = ["civiccore==0.2.0", "fastapi>=0.115.0,<1.0.0", "uvicorn[standard]>=0.30.0,<1.0.0"]
+dependencies = ["civiccore==0.3.0", "fastapi>=0.115.0,<1.0.0", "uvicorn[standard]>=0.30.0,<1.0.0"]
 
 [project.optional-dependencies]
 dev = ["build>=1.2.0,<2.0.0", "httpx>=0.27.0,<1.0.0", "psycopg2-binary>=2.9.0,<3.0.0", "pytest>=8.0.0,<9.0.0", "ruff>=0.11.0"]

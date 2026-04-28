@@ -1,4 +1,4 @@
-CivicLegal v0.1.0 is the CivicSuite internal legal-record research support module.
+CivicLegal v0.1.1 is the CivicSuite internal legal-record research support module.
 
 Shipping: privilege-aware corpus filtering, citation-first city-record search, prior-action lookup, attorney-reviewed memo scaffolds, ordinance comparison checklists, litigation-hold candidate flags, authority citation tracking, FastAPI runtime, docs, tests, and browser QA evidence.
 
@@ -8,4 +8,4 @@ Install:
 python -m pip install -e ".[dev]"
 python -m uvicorn civiclegal.main:app --host 127.0.0.1 --port 8140
 
-Dependency: civiccore==0.2.0.
+Dependency: civiccore==0.3.0.
