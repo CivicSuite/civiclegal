@@ -1,0 +1,18 @@
+CivicLegal User Manual
+
+Non-technical staff:
+Use CivicLegal to search the city's own legal record, surface prior actions with citations, draft attorney-reviewed memo outlines, compare ordinance drafts, and flag litigation-hold candidates. Do not treat output as legal advice or a final legal conclusion.
+
+Access tiers:
+Public records can be visible broadly. Staff records require authorized staff access. Attorney-tier and privileged/work-product records are isolated and controlled by the city attorney.
+
+What it is not:
+CivicLegal is not legal advice, Westlaw, Lexis, outside counsel, court filing, e-discovery, autonomous legal conclusions, live LLM runtime, or external legal-system connector.
+
+IT/technical:
+Install with:
+python -m pip install -e ".[dev]"
+Run with:
+python -m uvicorn civiclegal.main:app --host 127.0.0.1 --port 8140
+Dependency: civiccore==0.2.0.
+Release gate: bash scripts/verify-release.sh.
