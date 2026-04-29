@@ -76,7 +76,7 @@ def root() -> dict[str, str]:
             "Westlaw/Lexis replacement, autonomous legal conclusions, live LLM calls, court filing, "
             "and external legal-system connector runtime are not implemented yet."
         ),
-        "next_step": "Post-v0.1.1 roadmap: attorney-managed corpus imports, legal review queues, and cross-module handoffs",
+        "next_step": "Post-v0.1.2 roadmap: attorney-managed corpus imports, legal review queues, and cross-module handoffs",
     }
 
 

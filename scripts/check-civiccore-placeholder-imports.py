@@ -12,7 +12,6 @@ PLACEHOLDERS = (
     "notifications",
     "onboarding",
     "scaffold",
-    "search",
     "verification",
 )
 SOURCE_ROOT = Path("civiclegal")
@@ -24,8 +23,8 @@ for path in SOURCE_ROOT.rglob("*.py"):
         match = pattern.search(line)
         if match:
             violations.append(
-                f"{path}:{lineno}: civiccore.{match.group(1)} is a placeholder package "
-                "in v0.3.0. See AGENTS.md section 3.1."
+                f"{path}:{lineno}: civiccore.{match.group(1)} is still reserved for CivicLegal. "
+                "See AGENTS.md section 3.1."
             )
 
 if violations:

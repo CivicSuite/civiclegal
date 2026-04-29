@@ -2,6 +2,12 @@
 from dataclasses import dataclass
 from enum import StrEnum
 
+from civiccore.search import (
+    access_level_allows,
+    filter_records_by_access_level,
+    normalize_access_value,
+)
+
 
 class AccessTier(StrEnum):
     PUBLIC = "public"
@@ -40,7 +46,7 @@ _TIER_RANK = {
 def normalize_tier(value: str | AccessTier) -> AccessTier:
     if isinstance(value, AccessTier):
         return value
-    normalized = value.strip().lower().replace("-", "_")
+    normalized = normalize_access_value(value)
     try:
         return AccessTier(normalized)
     except ValueError as exc:
@@ -48,14 +54,18 @@ def normalize_tier(value: str | AccessTier) -> AccessTier:
 
 
 def tier_for_role(role: str) -> AccessTier:
-    normalized = role.strip().lower().replace("-", "_")
+    normalized = normalize_access_value(role)
     if normalized not in ROLE_TIERS:
         raise ValueError(f"unknown legal role: {role}")
     return ROLE_TIERS[normalized]
 
 
 def can_access(user_tier: str | AccessTier, record_tier: str | AccessTier) -> bool:
-    return _TIER_RANK[normalize_tier(user_tier)] >= _TIER_RANK[normalize_tier(record_tier)]
+    return access_level_allows(
+        normalize_tier(user_tier).value,
+        normalize_tier(record_tier).value,
+        level_ranks={tier.value: rank for tier, rank in _TIER_RANK.items()},
+    )
 
 
 def filter_accessible_records(
@@ -63,4 +73,9 @@ def filter_accessible_records(
     role: str,
 ) -> list[LegalRecord]:
     user_tier = tier_for_role(role)
-    return [record for record in records if can_access(user_tier, record.access_tier)]
+    return filter_records_by_access_level(
+        records,
+        user_level=user_tier.value,
+        level_ranks={tier.value: rank for tier, rank in _TIER_RANK.items()},
+        access_level_for=lambda record: record.access_tier.value,
+    )
