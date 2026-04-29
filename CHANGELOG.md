@@ -2,6 +2,11 @@
 
 ## [0.1.1] - 2026-04-28
 
+### Added
+
+- Optional SQLAlchemy-backed memo draft and litigation-hold workpaper records via `CIVICLEGAL_WORKPAPER_DB_URL`.
+- Legal memo and litigation-hold retrieval endpoints for persisted records.
+
 ### Changed
 
 - Dependency-alignment release: moved CivicLegal to `civiccore==0.3.0` while preserving the existing v0.1.0 runtime foundation behavior.

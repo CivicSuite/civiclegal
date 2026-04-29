@@ -11,6 +11,7 @@ def test_root_reports_honest_current_state():
 
     assert payload["name"] == "CivicLegal"
     assert payload["version"] == __version__
+    assert "database-backed memo/hold workpapers" in payload["message"]
     assert "legal advice" in payload["message"]
     assert "not implemented yet" in payload["message"]
 
@@ -35,9 +36,9 @@ def test_public_ui_contains_version_boundaries_and_dependency():
 def test_api_endpoints_return_deterministic_payloads():
     assert client.post("/api/v1/civiclegal/search", json={"query": "noise", "role": "staff"}).status_code == 200
     assert client.post("/api/v1/civiclegal/precedent", json={"question": "noise", "role": "staff"}).status_code == 200
-    assert client.post("/api/v1/civiclegal/memo", json={"topic": "noise", "cited_sources": ["Code 8.12"]}).json()["not_legal_advice"] is True
+    assert client.post("/api/v1/civiclegal/memo", json={"topic": "noise", "cited_sources": ["Code 8.12"]}).json()["memo_id"] is None
     assert client.post("/api/v1/civiclegal/ordinance-comparison", json={"proposed_title": "Noise", "prior_citations": ["Ord. 1"]}).status_code == 200
-    assert client.post("/api/v1/civiclegal/litigation-hold", json={"matter": "noise"}).status_code == 200
+    assert client.post("/api/v1/civiclegal/litigation-hold", json={"matter": "noise"}).json()["hold_id"] is None
     assert client.post("/api/v1/civiclegal/citation-tracker", json={"topic": "noise", "citations": ["Case 1"]}).status_code == 200
 
 
