@@ -7,6 +7,6 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with: {python-version: "3.11"}
-      - run: python -m pip install https://github.com/CivicSuite/civiccore/releases/download/v0.3.0/civiccore-0.3.0-py3-none-any.whl
+      - run: python -m pip install https://github.com/CivicSuite/civiccore/releases/download/v0.11.0/civiccore-0.11.0-py3-none-any.whl
       - run: python -m pip install -e ".[dev]"
       - run: bash scripts/verify-release.sh
