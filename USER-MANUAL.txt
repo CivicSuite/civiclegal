@@ -1,7 +1,7 @@
 CivicLegal User Manual
 
 Non-technical staff:
-Use CivicLegal to search the city's own legal record, surface prior actions with citations, draft attorney-reviewed memo outlines, compare ordinance drafts, and flag litigation-hold candidates. Do not treat output as legal advice or a final legal conclusion.
+Use CivicLegal to search the city's own legal record, surface prior actions with citations, draft attorney-reviewed memo outlines, retrieve optional saved memo/hold workpapers, compare ordinance drafts, and flag litigation-hold candidates. Do not treat output as legal advice or a final legal conclusion.
 
 Access tiers:
 Public records can be visible broadly. Staff records require authorized staff access. Attorney-tier and privileged/work-product records are isolated and controlled by the city attorney.
@@ -15,4 +15,5 @@ python -m pip install -e ".[dev]"
 Run with:
 python -m uvicorn civiclegal.main:app --host 127.0.0.1 --port 8140
 Dependency: civiccore==0.3.0.
+Optional persistence: set CIVICLEGAL_WORKPAPER_DB_URL to enable SQLAlchemy-backed memo draft and litigation-hold preflight records.
 Release gate: bash scripts/verify-release.sh.

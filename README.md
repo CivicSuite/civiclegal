@@ -1,6 +1,6 @@
 # CivicLegal
 
-CivicLegal is the CivicSuite internal legal-record research support module. Version 0.1.1 ships deterministic foundations for privilege-aware corpus filtering, citation-first search across city records, prior-action lookup, attorney-reviewed memo scaffolds, ordinance comparison checklists, litigation-hold candidate flags, authority citation tracking, FastAPI runtime, docs, tests, browser QA, and release gates.
+CivicLegal is the CivicSuite internal legal-record research support module. Version 0.1.1 ships deterministic foundations for privilege-aware corpus filtering, citation-first search across city records, prior-action lookup, attorney-reviewed memo scaffolds, ordinance comparison checklists, litigation-hold candidate flags, optional database-backed legal workpapers, authority citation tracking, FastAPI runtime, docs, tests, browser QA, and release gates.
 
 It is intentionally not legal advice, not Westlaw or Lexis, not a court-filing system, not an autonomous legal conclusion engine, and not an external legal-system connector. City attorneys control the corpus, approve outputs, and make all legal judgments.
 
@@ -10,6 +10,7 @@ It is intentionally not legal advice, not Westlaw or Lexis, not a court-filing s
 - Citation-first cross-corpus search over supplied city legal records.
 - Prior-action lookup with citation output and attorney-review boundary.
 - Legal memo draft scaffolds that require attorney review.
+- Optional SQLAlchemy-backed memo draft and litigation-hold workpaper records through `CIVICLEGAL_WORKPAPER_DB_URL`.
 - Ordinance draft comparison checklists.
 - Litigation-hold candidate flagging.
 - Attorney-maintained statute/case citation tracking.
@@ -28,6 +29,8 @@ python -m uvicorn civiclegal.main:app --host 127.0.0.1 --port 8140
 ```
 
 CivicLegal v0.1.1 is pinned to `civiccore==0.3.0`.
+
+Set `CIVICLEGAL_WORKPAPER_DB_URL` to persist attorney-review memo drafts and litigation-hold preflight records. Without it, CivicLegal remains deterministic and stateless.
 
 ## Documentation
 

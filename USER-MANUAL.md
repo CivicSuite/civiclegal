@@ -2,7 +2,7 @@
 
 ## What CivicLegal Is
 
-CivicLegal helps authorized municipal legal staff work with the city's own legal record. It supports cited internal search, prior-action lookup, attorney-reviewed memo scaffolds, ordinance comparison checklists, litigation-hold candidate flags, and authority citation tracking.
+CivicLegal helps authorized municipal legal staff work with the city's own legal record. It supports cited internal search, prior-action lookup, attorney-reviewed memo scaffolds, ordinance comparison checklists, litigation-hold candidate flags, optional saved memo/hold workpapers, and authority citation tracking.
 
 CivicLegal does not provide legal advice. It does not replace Westlaw, Lexis, outside counsel, court filing systems, e-discovery systems, or attorney judgment.
 
@@ -32,6 +32,8 @@ python -m uvicorn civiclegal.main:app --host 127.0.0.1 --port 8140
 ```
 
 CivicLegal v0.1.1 depends on `civiccore==0.3.0`.
+
+Set `CIVICLEGAL_WORKPAPER_DB_URL` to enable SQLAlchemy-backed attorney-review memo draft and litigation-hold preflight records. Leave it unset for deterministic stateless operation.
 
 Run the release gate:
 
