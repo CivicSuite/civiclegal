@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-echo "VERIFY-RELEASE: CivicLegal v0.1.1"
+echo "VERIFY-RELEASE: CivicLegal v0.1.2"
 PYTHON_CANDIDATES=(); [[ -n "${CIVICLEGAL_RELEASE_PYTHON:-}" ]] && PYTHON_CANDIDATES+=("$CIVICLEGAL_RELEASE_PYTHON")
 PYTHON_CANDIDATES+=(python python3 py "/mnt/c/Users/scott/AppData/Local/Microsoft/WindowsApps/python.exe")
 PYTHON_BIN=""
@@ -16,7 +16,7 @@ rm -rf dist
 "$PYTHON_BIN" - <<'PY'
 from pathlib import Path
 import hashlib
-expected={"civiclegal-0.1.1-py3-none-any.whl","civiclegal-0.1.1.tar.gz"}
+expected={"civiclegal-0.1.2-py3-none-any.whl","civiclegal-0.1.2.tar.gz"}
 dist=Path("dist"); found={p.name for p in dist.iterdir() if p.is_file()}; missing=expected-found
 if missing: raise SystemExit(f"missing artifacts: {sorted(missing)}")
 lines=[]
@@ -26,7 +26,7 @@ print("[PASS] build artifacts and SHA256SUMS")
 PY
 "$PYTHON_BIN" - <<'PY'
 import civiclegal
-assert civiclegal.__version__ == "0.1.1"
-print("[PASS] package version 0.1.1")
+assert civiclegal.__version__ == "0.1.2"
+print("[PASS] package version 0.1.2")
 PY
 echo "VERIFY-RELEASE: PASSED"

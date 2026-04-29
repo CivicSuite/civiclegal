@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.2] - 2026-04-29
+
+### Changed
+
+- Privilege-tier filtering now reuses the shared `civiccore.search` access helpers instead of local-only access comparisons.
+- Dependency alignment moved CivicLegal to the published `civiccore` v0.11.0 release wheel.
+- Updated verification scripts, runtime tests, package metadata, and current-facing docs for the v0.1.2 release.
+
 ## [0.1.1] - 2026-04-28
 
 ### Added

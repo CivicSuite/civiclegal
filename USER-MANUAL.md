@@ -31,7 +31,7 @@ python -m pip install -e ".[dev]"
 python -m uvicorn civiclegal.main:app --host 127.0.0.1 --port 8140
 ```
 
-CivicLegal v0.1.1 depends on `civiccore==0.3.0`.
+CivicLegal v0.1.2 depends on the published `civiccore` v0.11.0 release wheel.
 
 Set `CIVICLEGAL_WORKPAPER_DB_URL` to enable SQLAlchemy-backed attorney-review memo draft and litigation-hold preflight records. Leave it unset for deterministic stateless operation.
 
@@ -47,4 +47,4 @@ The release gate checks documentation, placeholder imports, tests, Ruff, package
 
 ![CivicLegal architecture](docs/architecture-civiclegal.svg)
 
-CivicLegal v0.1.1 is conservative by design. The city attorney controls corpus access and privileged records. CivicLegal filters records by access tier, returns citations, and prepares review artifacts. Attorneys approve all legal work. Future releases can add live CivicCode, CivicClerk, and CivicContracts imports without weakening the human-review and privilege boundaries.
+CivicLegal v0.1.2 is conservative by design. The city attorney controls corpus access and privileged records. CivicLegal filters records by access tier through shared CivicCore search-access helpers, returns citations, and prepares review artifacts. Attorneys approve all legal work. Future releases can add live CivicCode, CivicClerk, and CivicContracts imports without weakening the human-review and privilege boundaries.

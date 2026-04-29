@@ -9,7 +9,7 @@ from civiclegal.statutes import track_authority_citations
 
 
 def test_version_is_release_version():
-    assert __version__ == "0.1.1"
+    assert __version__ == "0.1.2"
 
 
 def test_privilege_tiers_are_strictly_ordered():

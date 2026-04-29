@@ -14,6 +14,6 @@ Install with:
 python -m pip install -e ".[dev]"
 Run with:
 python -m uvicorn civiclegal.main:app --host 127.0.0.1 --port 8140
-Dependency: civiccore==0.3.0.
+Dependency: published civiccore v0.11.0 release wheel.
 Optional persistence: set CIVICLEGAL_WORKPAPER_DB_URL to enable SQLAlchemy-backed memo draft and litigation-hold preflight records.
 Release gate: bash scripts/verify-release.sh.
